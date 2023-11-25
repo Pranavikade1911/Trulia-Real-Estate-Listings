@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Apartments</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+     <header class="p-3 text-bg-dark">
+          <div class="container">
+               <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a class="navbar-brand mx-2 text-info" href="/index">Trulia</a>
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                         <use xlink:href="#bootstrap"></use>
+                    </svg>
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                         <li><a href="#" class="nav-link px-2 text-white">Buy</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">Sell</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">Moratge</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    </ul>
+
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                         <input type="search" class="form-control form-control-dark text-bg-light"
+                              placeholder="Search..." aria-label="Search">
+                    </form>
+
+                    <div class="text-end">
+                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                              data-bs-target="#loginModal">Login</button>
+                         <button type="button" class="btn btn btn-warning" data-bs-toggle="modal"
+                              data-bs-target="#signupModal">Sign-up</button>
+                    </div>
+               </div>
+          </div>
+     </header>
+     <!-- Login Modal -->
+     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <form>
+                              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                              <div class="form-floating">
+                                   <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com">
+                                   <label for="floatingInput">Email address</label>
+                              </div>
+                              <div class="form-floating">
+                                   <input type="password" class="form-control" id="floatingPassword"
+                                        placeholder="Password">
+                                   <label for="floatingPassword">Password</label>
+                              </div>
+
+                              <div class="form-check text-start my-3">
+                                   <input class="form-check-input" type="checkbox" value="remember-me"
+                                        id="flexCheckDefault">
+                                   <label class="form-check-label" for="flexCheckDefault">
+                                        Remember me
+                                   </label>
+                              </div>
+                              <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+                         </form>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- Signup Modal (similar changes as above) -->
+
+     <!-- Signup Modal -->
+     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title" id="signupModalLabel">Sign-up</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <!-- Your signup form here -->
+                         <form>
+                              <div class="mb-3">
+                                   <label for="email" class="form-label">Email</label>
+                                   <input type="email" class="form-control" id="email">
+                              </div>
+                              <div class="mb-3">
+                                   <label for="password" class="form-label">Password</label>
+                                   <input type="password" class="form-control" id="password">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                         </form>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="container">
+          <section class="py-5 text-center container">
+               <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                         <h1 class="fw-light">Properties for Rent</h1>
+                         <hr>
+                         <p class="lead text-muted fs-5">Real estate is considered real property that includes land and
+                              anything permanently attached to it or built on it, whether natural or man-made.</p>
+                    </div>
+               </div>
+          </section>
+          <div class="album py-3 bg-light">
+               <div class="container">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img7.jpg" th:src="@{/images/img7.jpg}"alt="">
+                                   <div class="card-body">
+                                        <h4 class="card-text">$1000</h4>
+                                        <p><strong>2</strong> bed <strong>2</strong> bath <strong>1506</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img8.jpg" th:src="@{/images/img8.jpg}"alt="">
+                                   <div class="card-body">
+                                        <h4>$2500</h4>
+                                        <p><strong>4</strong> bed <strong>3</strong> bath <strong>2500</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img9.jpg"th:src="@{/images/img9.jpg}" alt="">
+                                   <div class="card-body">
+                                        <h4 class="card-text">$1200</h4>
+                                        <p><strong>5</strong> bed <strong>3</strong> bath <strong>2000</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img10.jpg" th:src="@{/images/img10.jpg}"alt="">
+                                   <div class="card-body">
+                                        <h4 class="card-text">$2200</h4>
+                                        <p><strong>3</strong> bed <strong>3</strong> bath <strong>1116</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img11.jpg" th:src="@{/images/img12.jpg}"alt="">
+                                   <div class="card-body">
+                                        <h4 class="card-text">$2500</h4>
+                                        <p><strong>4</strong> bed <strong>3</strong> bath <strong>1200</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="card shadow-sm">
+                                   <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                        src="../static/images/img12.jpg" th:src="@{/images/img12.jpg}"alt="">
+                                   <div class="card-body">
+                                        <h4 class="card-text">$1800</h4>
+                                        <p><strong>3</strong> bed <strong>2</strong> bath <strong>1487</strong> sqft</p>
+                                        <p>3276 Lema Dr
+                                             Springhill, FL 34609
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <div class="btn-group">
+                                                  <button type="button"
+                                                       class="btn btn-sm btn-outline-secondary">View</button>
+                                             </div>
+                                             <small class="text-muted">9 mins</small>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+* {
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+
+.nav li {
+     font-size: 20px;
+     cursor: pointer;
+}
+
+
+.card-text{
+     font-weight: bold;
+}

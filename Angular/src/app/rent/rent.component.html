@@ -1,0 +1,38 @@
+<!-- body.component.html -->
+<div class="container">
+     <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+               <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Properties for Rent</h1>
+                    <hr>
+                    <p class="lead text-muted fs-5">Real estate is considered real property that includes land and
+                         anything permanently attached to it or built on it, whether natural or man-made.</p>
+               </div>
+          </div>
+     </section>
+     <div class="album py-3 bg-light">
+          <div class="container">
+               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col" *ngFor="let property of properties">
+                         <div class="card shadow-sm">
+                              <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                   [src]="property.image" alt="">
+                              <div class="card-body">
+                                   <h4 class="card-text">{{ property.price }}</h4>
+                                   <p><strong>{{ property.bed }}</strong> bed <strong>{{ property.bath }}</strong> bath
+                                        <strong>{{ property.sqft }}</strong> sqft</p>
+                                   <p>{{ property.address }}</p>
+                                   <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                             <button type="button"
+                                                  class="btn btn-sm btn-outline-secondary">View</button>
+                                        </div>
+                                        <small class="text-muted">9 mins</small>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

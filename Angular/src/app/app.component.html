@@ -1,0 +1,63 @@
+
+  <app-body></app-body>
+  <!-- <app-userdata></app-userdata> -->
+<!-- Practice -->
+
+<!-- app.component.html -->
+
+<!-- <h1>Welcome</h1> -->
+
+<!-- <div *ngIf="apiData">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Street</th>
+        <th>Suite</th>
+        <th>City</th>
+        <th>Zipcode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of apiData">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address?.street }}</td>
+        <td>{{ user.address?.suite }}</td>
+        <td>{{ user.address?.city }}</td>
+        <td>{{ user.address?.zipcode }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- <a routerLink="about">About</a><br> -->
+
+<!-- <a routerLink="contact">Contact</a> -->
+
+<!-- <button (click)="clickBtn()">Click Me</button> -->
+
+<router-outlet></router-outlet>
+
+<!-- <app-userdata></app-userdata> -->
+
+<!-- Template-driven Form -->
+<!-- <form #userData = "ngForm" (ngSubmit)="getForm(userData.value)">
+  <input type="text" placeholder="Enter username" ngModel name="name">
+  <input type="password" placeholder="Enter Password" ngModel name="password">
+  <button>Submit</button>
+</form> -->
+
+<!-- Reactive Form -->
+<!-- <form [formGroup]="UserData1" (ngSubmit)="getForm(UserData1.value)">
+  <input type="text" placeholder="Enter username" formControlName="name" name="name">
+  <input type="password" placeholder="Enter Password" formControlName="password" name="password">
+  <button type="submit">Submit</button>
+</form> -->

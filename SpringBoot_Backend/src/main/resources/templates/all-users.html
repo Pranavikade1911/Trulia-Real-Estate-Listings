@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Users</title>
+    <style>
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Style the table header */
+        th {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        /* Style the table rows */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Style the table cells */
+        td {
+            padding: 8px;
+        }
+
+        /* Style the h1 header */
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Center the table */
+        table {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>New Password</th>
+            <th>Old Password</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.Id}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.newPassword}"></td>
+            <td th:text="${user.oldPassword}"></td>
+        </tr>
+    </table>
+</body>
+</html>

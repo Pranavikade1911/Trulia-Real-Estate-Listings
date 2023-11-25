@@ -1,0 +1,143 @@
+* {
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav li {
+     font-size: 20px;
+     cursor: pointer;
+}
+
+main {
+     margin-bottom: 20px;
+}
+
+#myCarousel {
+     width: 100%;
+}
+
+.carousel-inner {
+     width: 100%;
+}
+
+.carousel-inner img {
+     width: 100%;
+     height: auto;
+     /* To maintain aspect ratio */
+     object-fit: cover;
+}
+.carousel-item img {
+     width: 100%;
+     height: 650px;
+     object-fit: cover;
+}
+
+.col-lg-4 {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+}
+
+.circle-container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.rounded-circle-image {
+     width: 140px;
+     height: 140px;
+     border-radius: 50%;
+     overflow: hidden;
+}
+
+.rounded-circle-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+
+.fw-normal {
+     margin-top: 25px;
+}
+
+.card-group {
+     margin: 35px 10px;
+     display: flex;
+     justify-content: space-between;
+}
+
+.card {
+     position: relative;
+     overflow: hidden;
+     margin: 20px;
+
+}
+
+.card-info {
+     position: absolute;
+     bottom: 0;
+     width: 90%;
+     background: rgb(250, 246, 246);
+     color: black;
+     padding: 10px;
+     border-radius: 15px;
+     margin-bottom: 12px;
+}
+
+.card-info h5,
+.card-info p {
+     margin: 0;
+}
+
+.card-info h5 {
+     font-weight: bold;
+}
+
+.card-img {
+     width: 360px;
+     height: 280px;
+     overflow: hidden;
+}
+
+.card-img img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+
+.button {
+     background-color: black;
+     border-radius: 12px;
+     color: white;
+     cursor: pointer;
+     font-size: 20px;
+}
+
+.button:hover {
+     color: rgb(137, 121, 121);
+}
+
+.modal-header h5 {
+     color: #000;
+}
+
+.modal-body h1,
+.modal-body label {
+     color: #000;
+     /* Set the color to a visible color, like black (#000) */
+}
+
+/* Optionally, you can add styles to change the link color */
+.modal-body a {
+     color: #007bff;
+     /* Set the color to a standard link color, like blue (#007bff) */
+}
+
+/* Optionally, you can add styles to change the button color */
+.modal-body button {
+     background-color: #007bff;
+     /* Set the background color of the button */
+     color: #fff;
+     /* Set the text color of the button to white */
+}

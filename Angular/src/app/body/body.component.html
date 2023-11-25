@@ -1,0 +1,287 @@
+<div *ngIf="!isUpdatePasswordRoute && !isViewUsersRoute && !isRentRoute">
+
+     <header class="p-3 text-bg-dark">
+          <div class="container">
+               <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a class="navbar-brand mx-2 text-info" href="">Trulia</a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                         <li><a href="#" class="nav-link px-2 text-white">Buy</a></li>
+                         <li><a [routerLink]="['/rent']" class="nav-link px-2 text-white">Rent</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">Sell</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">Mortgage</a></li>
+                         <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                         <li><a [routerLink]="['/user-details']" class="nav-link px-2 text-white">View Users</a></li>
+                    </ul>
+
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                         <input type="search" class="form-control form-control-dark text-bg-light"
+                              placeholder="Search..." aria-label="Search">
+                    </form>
+
+                    <div class="text-end">
+                         <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
+                              data-bs-target="#loginModal">Sign Up</button>
+                         <button type="button" class="btn btn btn-warning" data-bs-toggle="modal"
+                              data-bs-target="#signupModal">Log in</button>
+                    </div>
+               </div>
+          </div>
+     </header>
+
+     <!-- Login Modal -->
+     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title" id="loginModalLabel">Sign Up</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- ... (your existing code) ... -->
+
+                    <div class="modal-body">
+                         <div *ngIf="registrationSuccess">
+                              <p>User registered successfully!</p>
+                         </div>
+                         <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm" action="post">
+                              <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
+
+                              <!-- Existing email and password fields -->
+                              <div class="form-floating">
+                                   <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com" name="email" [(ngModel)]="formData.email"
+                                        required email>
+                                   <label for="floatingInput">Email address</label>
+                                   <div
+                                        *ngIf="signupForm.controls['email']?.invalid && (signupForm.controls['email']?.dirty || signupForm.controls['email']?.touched)">
+                                        <div *ngIf="signupForm.controls['email']?.errors?.['required']">Email is
+                                             required.
+                                        </div>
+                                        <div *ngIf="signupForm.controls['email']?.errors?.['email']">Invalid email
+                                             address.
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="form-floating">
+                                   <input type="password" class="form-control" id="floatingPassword"
+                                        placeholder="Password" name="password" [(ngModel)]="formData.password" required
+                                        minlength="8">
+                                   <label for="floatingPassword">Password</label>
+                                   <div
+                                        *ngIf="signupForm.controls['password']?.invalid && (signupForm.controls['password']?.dirty || signupForm.controls['password']?.touched)">
+                                        <div *ngIf="signupForm.controls['password']?.errors?.['required']">Password is
+                                             required.
+                                        </div>
+                                        <div *ngIf="signupForm.controls['password']?.errors?.['minlength']">Password
+                                             must be
+                                             at
+                                             least 8 characters long.</div>
+                                   </div>
+                              </div>
+
+                              <!-- "Forgot Password" link -->
+                              <a routerLink="/update-password" target="_blank">Update Password</a>
+
+                              <button class="btn btn-primary w-100 py-2" type="submit">Sign Up</button>
+                         </form>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <!-- Signup Modal -->
+     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title" id="signupModalLabel">Sign-up</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                         <!-- Your signup form here -->
+                         <form>
+                              <div class="mb-3">
+                                   <label for="email" class="form-label">Email</label>
+                                   <input type="email" class="form-control" id="email">
+                              </div>
+                              <div class="mb-3">
+                                   <label for="password" class="form-label">Password</label>
+                                   <input type="password" class="form-control" id="password">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                         </form>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <main>
+          <!-- body.component.html -->
+
+          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+               <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i === 0">
+                         <img [src]="image" alt="Image {{ i + 1 }}">
+                         <div class="container">
+                              <!-- Your carousel content here -->
+                              <div class="carousel-caption text-start">
+                                   <h1>The #1 site real estate professionals trust*</h1>
+                                   <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <!-- Previous and Next buttons here -->
+               <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+               </button>
+          </div>
+
+          <br>
+
+          <div class="container marketing">
+               <div class="row">
+                    <div class="col-lg-4" *ngFor="let city of cities">
+                         <div class="rounded-circle-image">
+                              <img [src]="city.image" alt="Image Description">
+                         </div>
+                         <h4 class="fw-normal">{{ city.name }}</h4>
+                         <p>{{ city.properties }} Properties</p>
+                         <p><a class="btn btn-secondary" href="#">View details »</a></p>
+                    </div>
+               </div>
+          </div>
+
+          <br>
+
+          <div class="container">
+               <h1 class="heading">Properties For Buy</h1>
+               <button class="button">View More</button>
+               <br>
+               <div class="row">
+                    <!-- Loop through your properties and create cards -->
+                    <div class="col-lg-4" *ngFor="let property of properties">
+                         <div class="card bg-dark text-white">
+                              <img [src]="property.image" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                                   <div class="card-info">
+                                        <div class="card-info-bg">
+                                             <h5 class="text-black">{{ property.price }}</h5>
+                                             <p class="text-secondary"> Sample Text Click to Select. </p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <br>
+
+          <div class="container">
+               <footer class="py-5">
+                    <div class="row">
+                         <div class="col-6 col-md-2 mb-3">
+                              <h5>Section</h5>
+                              <ul class="nav flex-column">
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Home</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Features</a></li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Pricing</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">FAQs</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">About</a>
+                                   </li>
+                              </ul>
+                         </div>
+
+                         <div class="col-6 col-md-2 mb-3">
+                              <h5>Section</h5>
+                              <ul class="nav flex-column">
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Home</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Features</a></li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Pricing</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">FAQs</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">About</a>
+                                   </li>
+                              </ul>
+                         </div>
+
+                         <div class="col-6 col-md-2 mb-3">
+                              <h5>Section</h5>
+                              <ul class="nav flex-column">
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Home</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Features</a></li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">Pricing</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">FAQs</a>
+                                   </li>
+                                   <li class="nav-item mb-2"><a href="#"
+                                             class="nav-link p-0 text-body-secondary">About</a>
+                                   </li>
+                              </ul>
+                         </div>
+
+                         <div class="col-md-5 offset-md-1 mb-3">
+                              <form>
+                                   <h5>Subscribe to our newsletter</h5>
+                                   <p>Monthly digest of what's new and exciting from us.</p>
+                                   <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                                        <input id="newsletter1" type="text" class="form-control"
+                                             placeholder="Email address">
+                                        <button class="btn btn-primary" type="button">Subscribe</button>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                         <p>© 2023 Company, Inc. All rights reserved.</p>
+                         <ul class="list-unstyled d-flex">
+                              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                             height="24">
+                                             <use xlink:href="#twitter"></use>
+                                        </svg></a></li>
+                              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                             height="24">
+                                             <use xlink:href="#instagram"></use>
+                                        </svg></a></li>
+                              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24"
+                                             height="24">
+                                             <use xlink:href="#facebook"></use>
+                                        </svg></a></li>
+                         </ul>
+                    </div>
+               </footer>
+          </div>
+     </main>
+</div>
+
+<!-- <button (click)="viewAllUsers()">View Users</button> -->
+<router-outlet></router-outlet>
